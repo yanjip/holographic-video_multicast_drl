@@ -12,7 +12,7 @@ from normalization import Normalization, RewardScaling
 from replaybuffer import ReplayBuffer
 from ppo_discrete import PPO_discrete
 
-seed = 40
+seed = para.seed
 torch.manual_seed(seed)
 torch.cuda.manual_seed(seed)
 torch.cuda.manual_seed_all(seed)
@@ -55,7 +55,8 @@ def main(args, env_name, number, seed):
     torch.manual_seed(seed)
 
     args.state_dim = env.observation_space.shape[0]
-    args.action_dim = env.action_space.n
+    # args.action_dim = env.action_space.n
+    args.action_dim = env.action_space
     args.max_episode_steps = env._max_episode_steps  # Maximum number of steps per episode
     print("env={}".format(env_name))
     print("state_dim={}".format(args.state_dim))

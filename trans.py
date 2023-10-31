@@ -21,6 +21,10 @@ class user_all():
     def group(self,):
 
         pass
+def generate():
+    U=user_all()
+    return U
+    pass
 if __name__ == '__main__':
     U=user_all()
     print('heoo')
